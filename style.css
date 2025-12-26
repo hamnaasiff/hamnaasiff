@@ -1,10 +1,9 @@
 :root {
-  --bg: #fafafa;
-  --text: #1e1e1e;
-  --muted: #6b7280;
-  --accent: #4f46e5;
-  --card: #ffffff;
-  --border: #e5e7eb;
+  --bg: #fbfbfd;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(15,23,42,.1);
+  --accent: #2563eb;
 }
 
 * {
@@ -13,60 +12,97 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
 }
 
-.container {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 48px 20px;
+.nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
 }
 
-h1 {
-  font-size: 2.8rem;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  color: var(--muted);
-  font-size: 1.1rem;
-}
-
-.links a {
-  margin-right: 18px;
+.logo {
+  font-weight: 700;
   text-decoration: none;
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--text);
 }
 
-.links a:hover {
-  text-decoration: underline;
+.navlinks a {
+  margin-left: 14px;
+  text-decoration: none;
+  color: var(--muted);
 }
 
-h2 {
-  margin-top: 48px;
-  font-size: 1.6rem;
+.navlinks a:hover {
+  color: var(--text);
+}
+
+.hero {
+  padding: 80px 22px;
+  background: linear-gradient(180deg, #f8f9ff, #ffffff);
+}
+
+.hero h1 {
+  font-size: 42px;
+  max-width: 600px;
+}
+
+.lead {
+  max-width: 600px;
+  font-size: 18px;
+}
+
+.hero-card img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+}
+
+.section {
+  padding: 60px 22px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
 }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px;
-  margin-top: 16px;
-  transition: transform 0.2s ease;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.05);
 }
 
-.card:hover {
-  transform: translateY(-2px);
+.card img {
+  width: 100%;
+  border-radius: 12px;
 }
 
-.footer {
-  text-align: center;
-  padding: 40px 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+.tags span {
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 6px;
+  font-size: 12px;
+  background: #eef2ff;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.contact-card {
+  display: block;
+  padding: 18px;
+  background: #f8f9fc;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: #000;
 }
