@@ -11,34 +11,36 @@
 
   <!-- NAV -->
   <header class="nav">
-    <a class="logo" href="#">Hamna Asif</a>
+    <a class="logo" href="#top">🐻 Hamna Asif</a>
     <nav class="navlinks">
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#resume">Resume</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a href="#contact" class="pill">Contact</a>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div>
         <p class="kicker">UC Berkeley • Mechanical & Environmental Engineering</p>
         <h1>Designing thoughtful, human-centered engineering solutions.</h1>
         <p class="lead">
-          I’m Hamna — a mechanical engineering student exploring product design,
-          sustainability, and real-world problem solving.
+          I’m Hamna — a sophomore at UC Berkeley exploring product design, sustainability,
+          and real-world problem solving.
         </p>
 
         <div class="cta">
           <a class="btn" href="#projects">View projects</a>
-          <a class="btn ghost" href="resume.pdf" target="_blank">Resume</a>
+          <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Open resume</a>
         </div>
       </div>
 
+      <!-- IMPORTANT: this uses your existing filename -->
       <div class="hero-card">
-        <img src="images/Adbobe Express - file.png" alt="Hamna Asif">
+        <img src="images/Adobe%20Express%20-%20file.png" alt="Hamna Asif" />
+        <div class="hero-card-caption">Berkeley ↔ Lahore • MechE + EES</div>
       </div>
     </div>
   </section>
@@ -47,38 +49,78 @@
   <section class="section" id="projects">
     <div class="wrap">
       <h2>Projects</h2>
+      <p class="subhead">Click a project to see more details.</p>
 
       <div class="cards">
 
-        <article class="card">
-          <img src="images/IMG_4627.jpeg" alt="Wind Turbine Project">
+        <!-- Wind Turbine -->
+        <article class="card clickable" data-target="p1">
+          <img src="images/IMG_4627.jpeg" alt="Wind Turbine Project" />
           <div class="card-body">
             <h3>Wind Turbine Design</h3>
-            <p>Designed and analyzed turbine blades using CAD and FEA to optimize efficiency and structural strength.</p>
+            <p class="preview">Designed and analyzed turbine blades using CAD and FEA.</p>
             <div class="tags">
               <span>SolidWorks</span><span>FEA</span><span>Design</span>
             </div>
-          </div>
-        </article>
 
-        <article class="card">
-          <img src="images/parking-lot.jpg" alt="Parking System">
-          <div class="card-body">
-            <h3>Parking Lot Indicator System</h3>
-            <p>Built a sensor-based system using Arduino to detect vehicle presence and control LED indicators.</p>
-            <div class="tags">
-              <span>Arduino</span><span>Sensors</span><span>Prototyping</span>
+            <div class="details" id="p1">
+              <p>
+                Designed and prototyped wind turbine components with iterative modeling.
+                Focused on structural performance and efficiency using CAD workflows and analysis.
+              </p>
+              <ul>
+                <li>Modeled geometry and refined design iterations</li>
+                <li>Used FEA concepts to reason about stiffness/strength</li>
+                <li>Documented results and tradeoffs clearly</li>
+              </ul>
             </div>
           </div>
         </article>
 
-        <article class="card">
-          <img src="images/lab-research.jpg" alt="Research Work">
+        <!-- Parking Lot -->
+        <article class="card clickable" data-target="p2">
+          <img src="images/IMG_1540.jpg" alt="Parking Lot Indicator System" />
+          <div class="card-body">
+            <h3>Parking Lot Indicator System</h3>
+            <p class="preview">Arduino-based sensor system to detect cars and control LEDs.</p>
+            <div class="tags">
+              <span>Arduino</span><span>Sensors</span><span>Prototyping</span>
+            </div>
+
+            <div class="details" id="p2">
+              <p>
+                Built a simple embedded system that detects vehicle presence and switches indicator
+                LEDs (green → red) based on sensor input.
+              </p>
+              <ul>
+                <li>Implemented sensor-to-output logic</li>
+                <li>Tested reliability and tuned detection behavior</li>
+                <li>Designed for clarity and easy user interpretation</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Research -->
+        <article class="card clickable" data-target="p3">
+          <img src="images/flow%20lab%20image.jpg" alt="Research Work" />
           <div class="card-body">
             <h3>Engineering Research</h3>
-            <p>Worked on data analysis and experimental research in engineering and applied sciences labs.</p>
+            <p class="preview">Data analysis + experimental research across labs.</p>
             <div class="tags">
               <span>Research</span><span>Data</span><span>Analysis</span>
+            </div>
+
+            <div class="details" id="p3">
+              <p>
+                Worked across research settings on experimental workflows and data processing.
+                Interested in projects where careful measurement + clean analysis lead to real insights.
+              </p>
+              <ul>
+                <li>Organized datasets and supported analysis workflows</li>
+                <li>Helped with experimental documentation and interpretation</li>
+                <li>Collaborated with teams to keep projects moving</li>
+              </ul>
             </div>
           </div>
         </article>
@@ -91,6 +133,8 @@
   <section class="section soft" id="skills">
     <div class="wrap">
       <h2>Skills</h2>
+      <p class="subhead">Tools + topics I’m growing in.</p>
+
       <div class="chips">
         <span class="chip">SolidWorks</span>
         <span class="chip">MATLAB</span>
@@ -107,14 +151,40 @@
       <h2>Contact</h2>
       <div class="contact-grid">
         <a class="contact-card" href="mailto:hamna.asif@berkeley.edu">
-          <strong>Email</strong><br>hamna.asif@berkeley.edu
+          <div class="contact-title">Email</div>
+          <div class="contact-sub">hamna.asif@berkeley.edu</div>
         </a>
-        <a class="contact-card" href="https://www.linkedin.com/in/hamna-asif-" target="_blank">
-          <strong>LinkedIn</strong><br>www.linkedin.com/in/hamna-asif-
+
+        <a class="contact-card" href="https://www.linkedin.com/in/hamna-asif" target="_blank" rel="noopener">
+          <div class="contact-title">LinkedIn</div>
+          <div class="contact-sub">linkedin.com/in/hamna-asif</div>
+        </a>
+
+        <a class="contact-card" href="https://github.com/hamnaasiff" target="_blank" rel="noopener">
+          <div class="contact-title">GitHub</div>
+          <div class="contact-sub">@hamnaasiff</div>
         </a>
       </div>
+
+      <footer class="footer">
+        © <span id="year"></span> Hamna Asif
+      </footer>
     </div>
   </section>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // clickable cards: toggle details
+    document.querySelectorAll(".card.clickable").forEach((card) => {
+      card.addEventListener("click", () => {
+        const id = card.getAttribute("data-target");
+        const details = document.getElementById(id);
+        details.classList.toggle("open");
+      });
+    });
+  </script>
 
 </body>
 </html>
