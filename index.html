@@ -3,69 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamna Asif | Engineering Student</title>
+  <title>Hamna Asif | Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="container">
-    <h1>Hamna Asif</h1>
-    <p class="subtitle">
-      Mechanical Engineering & Environmental Engineering Science @ UC Berkeley
-    </p>
 
-    <div class="links">
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="logo" href="#">Hamna Asif</a>
+    <nav class="navlinks">
       <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
+      <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact" class="pill">Contact</a>
+    </nav>
   </header>
 
-  <main class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">UC Berkeley • Mechanical & Environmental Engineering</p>
+        <h1>Designing thoughtful, human-centered engineering solutions.</h1>
+        <p class="lead">
+          I’m Hamna — a mechanical engineering student exploring product design,
+          sustainability, and real-world problem solving.
+        </p>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I’m a sophomore at UC Berkeley studying Mechanical Engineering and Environmental Engineering Science.
-        I’m interested in building thoughtful, human-centered solutions — from product design to sustainability-focused systems.
-      </p>
-      <p>
-        Currently, I’m exploring product development, design thinking, and engineering applications that combine
-        technical rigor with real-world impact.
-      </p>
-    </section>
+        <div class="cta">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn ghost" href="resume.pdf" target="_blank">Resume</a>
+        </div>
+      </div>
 
-    <section id="projects">
+      <div class="hero-card">
+        <img src="images/Adbobe Express - file.png" alt="Hamna Asif">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="wrap">
       <h2>Projects</h2>
 
-      <div class="card">
-        <h3>Pillow Product Design</h3>
-        <p>
-          A product-focused project exploring ergonomics, comfort, and user-centered design.
-          Includes early ideation, market research, and prototyping concepts.
-        </p>
-      </div>
+      <div class="cards">
 
-      <div class="card">
-        <h3>Engineering Coursework</h3>
-        <p>
-          Design, analysis, and modeling projects from mechanical and environmental engineering coursework at UC Berkeley.
-        </p>
-      </div>
-    </section>
+        <article class="card">
+          <img src="images/IMG_4627.jpeg" alt="Wind Turbine Project">
+          <div class="card-body">
+            <h3>Wind Turbine Design</h3>
+            <p>Designed and analyzed turbine blades using CAD and FEA to optimize efficiency and structural strength.</p>
+            <div class="tags">
+              <span>SolidWorks</span><span>FEA</span><span>Design</span>
+            </div>
+          </div>
+        </article>
 
-    <section id="contact">
+        <article class="card">
+          <img src="images/parking-lot.jpg" alt="Parking System">
+          <div class="card-body">
+            <h3>Parking Lot Indicator System</h3>
+            <p>Built a sensor-based system using Arduino to detect vehicle presence and control LED indicators.</p>
+            <div class="tags">
+              <span>Arduino</span><span>Sensors</span><span>Prototyping</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/lab-research.jpg" alt="Research Work">
+          <div class="card-body">
+            <h3>Engineering Research</h3>
+            <p>Worked on data analysis and experimental research in engineering and applied sciences labs.</p>
+            <div class="tags">
+              <span>Research</span><span>Data</span><span>Analysis</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section soft" id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="chips">
+        <span class="chip">SolidWorks</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">Arduino</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">Engineering Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:hamna.asif@berkeley.edu">hamna.asif@berkeley.edu</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hamna-asif-" target="_blank">linkedin.com/in/hamna-asif-</a></p>
-    </section>
-  </main>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:hamna.asif@berkeley.edu">
+          <strong>Email</strong><br>hamna.asif@berkeley.edu
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/hamna-asif-" target="_blank">
+          <strong>LinkedIn</strong><br>www.linkedin.com/in/hamna-asif-
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Hamna Asif</p>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
