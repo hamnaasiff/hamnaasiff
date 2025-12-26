@@ -23,29 +23,41 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="wrap hero-grid">
-      <div>
-        <p class="kicker">UC Berkeley • MechE & Environmental Engineering Science</p>
 
-<h1>
-  Building <span class="hl">clean</span>, <span class="hl">human-centered</span> systems
-  that actually work.
-</h1>
+      <div class="hero-left">
+        <p class="kicker">UC Berkeley • Mechanical & Environmental Engineering</p>
 
-<p class="lead">
-  I’m Hamna — a sophomore engineer who likes turning messy problems into simple,
-  testable designs. I care about sustainability, good design decisions, and shipping things that feel real.
-</p>
+        <h1 class="hero-title">
+          I build clean, human-centered engineering —
+          <span class="hero-highlight">from CAD to real prototypes</span>.
+        </h1>
 
-<div class="hero-badges">
-  <span class="badge">CAD + prototyping</span>
-  <span class="badge">FEA basics</span>
-  <span class="badge">Research + data</span>
-</div>
+        <p class="lead">
+          I’m Hamna — a sophomore at UC Berkeley. I’m into product design and sustainability,
+          and I like projects where the details actually matter (and where I can iterate fast).
+        </p>
 
-<div class="cta">
-  <a class="btn" href="#projects">View projects</a>
-  <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Open resume</a>
-</div>
+        <div class="hero-badges">
+          <span class="badge">MechE</span>
+          <span class="badge">EES</span>
+          <span class="badge">Product-minded</span>
+          <span class="badge">Lahore ↔ Berkeley</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Open resume</a>
+        </div>
+
+        <p class="hero-mini">
+          Right now: prepping for ME 100 / ME 106 / ENGIN 29 + building side projects.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <img src="./images/Adobe%20Express%20-%20file.png" alt="Hamna Asif" />
+        <div class="hero-card-caption">Berkeley ↔ Lahore • MechE + EES</div>
+      </div>
 
     </div>
   </section>
@@ -53,81 +65,114 @@
   <!-- PROJECTS -->
   <section class="section" id="projects">
     <div class="wrap">
-      <h2>Projects</h2>
-      <p class="subhead">Click a project to see more details.</p>
+
+      <div class="section-head">
+        <div>
+          <h2>Projects</h2>
+          <p class="subhead">Click a project card to expand details.</p>
+        </div>
+        <div class="section-note">Tap again to collapse</div>
+      </div>
 
       <div class="cards">
 
         <!-- Wind Turbine -->
-        <article class="card clickable" data-target="p1">
+        <article class="card clickable" data-target="p1" aria-expanded="false">
           <img src="./images/windturbine.png" alt="Wind Turbine Project" />
           <div class="card-body">
-            <h3>Wind Turbine Design</h3>
-            <p class="preview">Designed and analyzed turbine blades using CAD and FEA.</p>
+            <div class="card-topline">
+              <h3>Wind Turbine Design</h3>
+              <span class="tiny">CAD • FEA • Iteration</span>
+            </div>
+
+            <p class="preview">
+              Designed and analyzed turbine blades using CAD and FEA — focusing on performance and structural confidence.
+            </p>
 
             <div class="tags">
               <span>SolidWorks</span><span>FEA</span><span>Design</span>
             </div>
 
             <div class="details" id="p1">
-              <p>
-                Designed and prototyped wind turbine components with iterative modeling.
-                Focused on balancing structural performance with efficiency.
-              </p>
+              <p class="details-title">What I did</p>
               <ul>
-                <li>CAD modeling + iteration</li>
-                <li>FEA reasoning for stiffness/strength</li>
-                <li>Clear documentation of tradeoffs</li>
+                <li>Iterated blade + component geometry in CAD based on tradeoffs</li>
+                <li>Used analysis reasoning (FEA concepts) to guide redesign choices</li>
+                <li>Documented decisions clearly: what changed + why</li>
+              </ul>
+
+              <p class="details-title">Why it matters</p>
+              <ul>
+                <li>Shows my process: build → test → improve</li>
+                <li>Highlights analysis-based decisions, not just modeling</li>
               </ul>
             </div>
           </div>
         </article>
 
         <!-- Parking Lot -->
-        <article class="card clickable" data-target="p2">
+        <article class="card clickable" data-target="p2" aria-expanded="false">
           <img src="./images/parkinglot.jpg" alt="Parking Lot Indicator System" />
           <div class="card-body">
-            <h3>Parking Lot Indicator System</h3>
-            <p class="preview">Arduino-based sensor system to detect cars and control LEDs.</p>
+            <div class="card-topline">
+              <h3>Parking Lot Indicator System</h3>
+              <span class="tiny">Embedded • Sensors • LEDs</span>
+            </div>
+
+            <p class="preview">
+              Arduino-based sensor system to detect vehicle presence and control indicator LEDs (green → red).
+            </p>
 
             <div class="tags">
               <span>Arduino</span><span>Sensors</span><span>Prototyping</span>
             </div>
 
             <div class="details" id="p2">
-              <p>
-                Built an embedded system that detects vehicle presence and switches indicator LEDs
-                (green → red) based on sensor input.
-              </p>
+              <p class="details-title">What I built</p>
               <ul>
-                <li>Sensor-to-output logic</li>
-                <li>Testing + tuning for reliable detection</li>
-                <li>Designed for clear user feedback</li>
+                <li>Sensor-to-output logic for detection + real-time LED switching</li>
+                <li>Testing + tuning for consistent detection behavior</li>
+                <li>Simple UX: instant “available / not available” feedback</li>
+              </ul>
+
+              <p class="details-title">What I learned</p>
+              <ul>
+                <li>Reliability beats “perfect” ideas</li>
+                <li>Small systems get powerful when logic is clean</li>
               </ul>
             </div>
           </div>
         </article>
 
         <!-- Research -->
-        <article class="card clickable" data-target="p3">
+        <article class="card clickable" data-target="p3" aria-expanded="false">
           <img src="./images/flow%20lab%20image.jpg" alt="Research Work" />
           <div class="card-body">
-            <h3>Engineering Research</h3>
-            <p class="preview">Data analysis + experimental research across labs.</p>
+            <div class="card-topline">
+              <h3>Engineering Research</h3>
+              <span class="tiny">Data • Experiments • Analysis</span>
+            </div>
+
+            <p class="preview">
+              Research support across labs — experimental workflows, data processing, and analysis.
+            </p>
 
             <div class="tags">
               <span>Research</span><span>Data</span><span>Analysis</span>
             </div>
 
             <div class="details" id="p3">
-              <p>
-                Worked across research settings on experimental workflows and data processing.
-                Interested in projects where careful measurement + clean analysis lead to real insights.
-              </p>
+              <p class="details-title">What I do in labs</p>
               <ul>
-                <li>Dataset organization and analysis support</li>
-                <li>Experimental documentation</li>
-                <li>Collaboration + follow-through</li>
+                <li>Support experimental + data workflows to turn raw results into usable insight</li>
+                <li>Help with documentation and analysis so projects stay on track</li>
+                <li>Collaborate with teams and follow through end-to-end</li>
+              </ul>
+
+              <p class="details-title">What I’m growing toward</p>
+              <ul>
+                <li>More hands-on instrumentation + building</li>
+                <li>Stronger modeling foundations</li>
               </ul>
             </div>
           </div>
@@ -185,12 +230,14 @@
     // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // clickable cards: toggle details
+    // clickable cards: toggle details + aria-expanded
     document.querySelectorAll(".card.clickable").forEach((card) => {
       card.addEventListener("click", () => {
         const id = card.getAttribute("data-target");
         const details = document.getElementById(id);
-        details.classList.toggle("open");
+
+        const isOpen = details.classList.toggle("open");
+        card.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
     });
   </script>
