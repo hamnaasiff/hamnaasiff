@@ -1,246 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamna Asif | Engineering Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamna Asif | Mechanical & Environmental Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #a0785a;
+            --secondary: #8b6f47;
+            --accent: #d4a574;
+            --dark: #2d1f17;
+            --darker: #1a0f0a;
+            --light: #f5f0eb;
+            --gray: #9d8b7e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 15, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(26, 15, 10, 0.95);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(160, 120, 90, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bear-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(160, 120, 90, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .profile-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(160, 120, 90, 0.3);
+            border: 3px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .education {
+            background: rgba(160, 120, 90, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .education h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(160, 120, 90, 0.08), rgba(212, 165, 116, 0.08));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(160, 120, 90, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-header h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .experience-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(160, 120, 90, 0.08), rgba(212, 165, 116, 0.08));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(160, 120, 90, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(212, 165, 116, 0.2);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(160, 120, 90, 0.08), rgba(212, 165, 116, 0.08));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .leadership-card {
+            background: linear-gradient(135deg, rgba(160, 120, 90, 0.08), rgba(212, 165, 116, 0.08));
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .leadership-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-card h4 {
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .swe-image-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .swe-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(160, 120, 90, 0.3);
+            border: 3px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .swe-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, rgba(160, 120, 90, 0.08), rgba(212, 165, 116, 0.08));
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-card p {
+            color: var(--gray);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 2rem;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bear-emoji {
+                font-size: 3rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Image upload instructions */
+        .image-placeholder {
+            background: rgba(212, 165, 116, 0.1);
+            border: 2px dashed var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- NAV -->
-  <header class="nav">
-    <a class="logo" href="#top">🐻 Hamna Asif</a>
-    <nav class="navlinks">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a href="#contact" class="pill">Contact</a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">🐻 HA</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="wrap hero-grid">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="bear-emoji">🐻</span>
+            <h1>Hamna Asif</h1>
+            <h2>Mechanical & Environmental Engineering Science Student</h2>
+            <p>UC Berkeley | Class of 2028</p>
+            <p>Passionate about sustainable engineering solutions, mechanical design, and data-driven research</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://www.linkedin.com/in/hamna-asif-" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-      <div class="hero-left">
-        <p class="kicker">UC Berkeley • Mechanical & Environmental Engineering</p>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <!-- Replace the src with your image file path -->
+                    <img src="your-profile-image.jpg" alt="Hamna Asif" class="profile-image">
+                    <!-- If image doesn't load, you'll see the border and styling -->
+                </div>
+                <div class="education">
+                    <h3>University of California, Berkeley</h3>
+                    <p><strong>B.S. Mechanical Engineering</strong></p>
+                    <p><strong>B.S. Environmental Engineering Science</strong></p>
+                    <p>Expected Graduation: May 2028</p>
+                    <p style="margin-top: 1rem; color: var(--accent);">Dean's Honors List - Spring 2025</p>
+                </div>
+            </div>
+            <div class="about-text">
+                <p>I'm a double major in Mechanical Engineering and Environmental Engineering Science at UC Berkeley, driven by a passion for creating sustainable engineering solutions that make a real-world impact.</p>
+                <p>My experience spans from analyzing multiphase flow dynamics for marine transport sustainability to optimizing chemical processes, with a focus on combining mechanical design expertise with environmental consciousness.</p>
+                <p>Beyond academics, I'm deeply involved in promoting STEM education and diversity in engineering through my work with the Society of Women Engineers, where I've helped grow our chapter's social media presence by 35% and organized workshops that increased STEM interest among K-12 students by 22%.</p>
+                <p>Whether I'm conducting research at the FlowLab, designing wind turbines in SolidWorks, or leading community outreach initiatives, I'm always looking for innovative ways to apply engineering principles to solve real-world challenges while making STEM more accessible and inclusive.</p>
+            </div>
+        </div>
+    </section>
 
-        <h1 class="hero-title">
-          I build clean, human-centered engineering —
-          <span class="hero-highlight">from CAD to real prototypes</span>.
-        </h1>
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Research Intern</h3>
+                        <p style="color: var(--light);">UC Berkeley FlowLab</p>
+                    </div>
+                    <span class="experience-date">Aug 2025 - Present</span>
+                </div>
+                <ul>
+                    <li>Captured 200+ GB of multiphase flow data using Basler machine-vision cameras (500 fps)</li>
+                    <li>Processed images using MATLAB to analyze discrete gas-jet injection for frictional drag reduction (~60% of cargo ship propulsion power)</li>
+                    <li>Supporting research on sustainable marine transport through advanced flow dynamics analysis</li>
+                </ul>
+            </div>
 
-        <p class="lead">
-          I’m Hamna — a sophomore at UC Berkeley. I’m into product design and sustainability,
-          and I like projects where the details actually matter (and where I can iterate fast).
-        </p>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Undergraduate Administrative & Research Assistant</h3>
+                        <p style="color: var(--light);">UC Berkeley School of Public Health</p>
+                    </div>
+                    <span class="experience-date">Jun 2025 - Present</span>
+                </div>
+                <ul>
+                    <li>Cleaned and merged 50k-row global health datasets, speeding cost-effectiveness models by 30%</li>
+                    <li>Coordinated timelines with Prof. Stefano Bertozzi for 2 NIH-funded studies, maintaining 100% milestone completion</li>
+                </ul>
+            </div>
 
-        <div class="hero-badges">
-          <span class="badge">MechE</span>
-          <span class="badge">EES</span>
-          <span class="badge">Product-minded</span>
-          <span class="badge">Lahore ↔ Berkeley</span>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Research Assistant (URAP)</h3>
+                        <p style="color: var(--light);">UC Berkeley AUTOLab</p>
+                    </div>
+                    <span class="experience-date">Feb 2025 - Jul 2025</span>
+                </div>
+                <ul>
+                    <li>Segmented LBNL ALS X-ray CT data in ORS Dragonfly/MATLAB to quantify crystalline & organic residue morphology</li>
+                    <li>Achieved 95%+ mask overlap validation with MIT postdoc Jason Parker</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Project Intern</h3>
+                        <p style="color: var(--light);">DESCON Engineering, Lahore, Pakistan</p>
+                    </div>
+                    <span class="experience-date">Jun 2024 - Jul 2024</span>
+                </div>
+                <ul>
+                    <li>Conducted 10+ analyses on hydrogen peroxide synthesis via anthraquinone autoxidation process</li>
+                    <li>Modeled solvent recovery scenarios in Aspen Plus, projecting PKR 11M annual OPEX savings</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Engineering Intern</h3>
+                        <p style="color: var(--light);">Brillante Engineers, Lahore, Pakistan</p>
+                    </div>
+                    <span class="experience-date">Jun 2023 - Sep 2023</span>
+                </div>
+                <ul>
+                    <li>Assisted 3 process engineers in optimizing oil & gas, petrochemical, and infrastructure projects</li>
+                    <li>Drafted P&ID revisions that reduced pressure-vessel fabrication lead-time by 12 days</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Wind Turbine Design Project</h3>
+                <p>Designed and 3D-printed wind turbine prototypes achieving 1.555 W output while maintaining structural stiffness. Performed linear static FEA, reducing tower deflection to 0.33 mm under 10 N load.</p>
+                <div class="tech-tags">
+                    <span class="tag">SolidWorks</span>
+                    <span class="tag">FEA</span>
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Tolerance Analysis</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Cabbage-Extract pH Biosensor</h3>
+                <p>Winner, Pakistan Science Olympiad 2024. Developed a zero-cost water safety indicator kit now implemented in two Lahore schools for STEM education. Led design, testing, and classroom integration.</p>
+                <div class="tech-tags">
+                    <span class="tag">Biosensor Design</span>
+                    <span class="tag">Chemistry</span>
+                    <span class="tag">Education</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Arduino Parking Lot Indicator System</h3>
+                <p>Built a motion-triggered LED system using Arduino that switched from green to red when a car was detected, demonstrating real-time IoT applications.</p>
+                <div class="tech-tags">
+                    <span class="tag">Arduino</span>
+                    <span class="tag">Motion Sensor</span>
+                    <span class="tag">LED Control</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Hardware & CAD</h3>
+                <div class="skill-list">
+                    <span class="tag">SolidWorks</span>
+                    <span class="tag">Fusion 360</span>
+                    <span class="tag">FEA</span>
+                    <span class="tag">Rapid Prototyping</span>
+                    <span class="tag">Arduino</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Software & Programming</h3>
+                <div class="skill-list">
+                    <span class="tag">Python</span>
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">VS Code</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Engineering Tools</h3>
+                <div class="skill-list">
+                    <span class="tag">Aspen Plus</span>
+                    <span class="tag">Microsoft Office</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">Google Workspace</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Disciplines</h3>
+                <div class="skill-list">
+                    <span class="tag">Mechanical Design</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">3D Modeling</span>
+                    <span class="tag">Data Cleaning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership">
+        <h2 class="section-title">Leadership & Impact</h2>
+        <div class="leadership-grid">
+            <div class="leadership-card">
+                <h3>Society of Women Engineers, UC Berkeley</h3>
+                <h4>Social Media Officer | 2024 - Present</h4>
+                <ul>
+                    <li>Grew chapter social media presence by 35% (1.2k → 1.6k followers, 15% engagement)</li>
+                    <li>Hosted industry mixers with Persona and AS Consulting (80-100 attendees, $2.5k sponsorship)</li>
+                    <li>Ran hands-on fluid-dynamics/robotics workshops for 100+ K-12 students, raising STEM-interest survey scores by 22%</li>
+                </ul>
+                <div class="swe-image-container">
+                    <!-- Replace the src with your SWE group image file path -->
+                    <img src="your-swe-group-image.jpg" alt="SWE Team at Berkeley" class="swe-image">
+                </div>
+            </div>
+
+            <div class="leadership-card">
+                <h3>Learning Alliance, Lahore, Pakistan</h3>
+                <h4>Head Girl | 2023 - 2024</h4>
+                <ul>
+                    <li>Served as liaison between administration and 1000+ students; led 70+ member council</li>
+                    <li>Proposed and led Sportacus 3.0 (3-day inter-school sports competition) as Event Head</li>
+                    <li>Secured 5 sponsors matching required budget of 2 million PKR; 300+ participants from 20+ schools</li>
+                    <li>Hosted flagship school events including MUN@LA and breast cancer awareness equestrian show</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="cta">
-          <a class="btn" href="#projects">View projects</a>
-          <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Open resume</a>
+        <h2 class="section-title" style="margin-top: 4rem;">Honors & Awards</h2>
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <p><strong>Dean's Honors List</strong><br>Spring 2025, UC Berkeley</p>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🌟</div>
+                <p><strong>USEFP High Achievers' Award</strong><br>2023</p>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🥇</div>
+                <p><strong>Gold Medal</strong><br>Academic Roll of Honor<br>2021, 2022, 2023</p>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🎤</div>
+                <p><strong>Outstanding Achievement in Debates</strong><br>2019-2023</p>
+            </div>
         </div>
+    </section>
 
-        <p class="hero-mini">
-          Right now: prepping for ME 100 / ME 106 / ENGIN 29 + building side projects.
-        </p>
-      </div>
-
-      <div class="hero-card">
-        <img src="./images/Adobe%20Express%20-%20file.png" alt="Hamna Asif" />
-        <div class="hero-card-caption">Berkeley ↔ Lahore • MechE + EES</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="wrap">
-
-      <div class="section-head">
-        <div>
-          <h2>Projects</h2>
-          <p class="subhead">Click a project card to expand details.</p>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always open to discussing new opportunities, collaborations, or just chatting about engineering and sustainability!</p>
+            <div class="contact-links">
+                <a href="mailto:hamna.asif@berkeley.edu" class="btn btn-primary">Email Me</a>
+                <a href="https://www.linkedin.com/in/hamna-asif-" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            </div>
         </div>
-        <div class="section-note">Tap again to collapse</div>
-      </div>
+    </section>
 
-      <div class="cards">
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Hamna Asif. Designed with passion for sustainable engineering. 🐻</p>
+    </footer>
 
-        <!-- Wind Turbine -->
-        <article class="card clickable" data-target="p1" aria-expanded="false">
-          <img src="./images/windturbine.png" alt="Wind Turbine Project" />
-          <div class="card-body">
-            <div class="card-topline">
-              <h3>Wind Turbine Design</h3>
-              <span class="tiny">CAD • FEA • Iteration</span>
-            </div>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-            <p class="preview">
-              Designed and analyzed turbine blades using CAD and FEA — focusing on performance and structural confidence.
-            </p>
-
-            <div class="tags">
-              <span>SolidWorks</span><span>FEA</span><span>Design</span>
-            </div>
-
-            <div class="details" id="p1">
-              <p class="details-title">What I did</p>
-              <ul>
-                <li>Iterated blade + component geometry in CAD based on tradeoffs</li>
-                <li>Used analysis reasoning (FEA concepts) to guide redesign choices</li>
-                <li>Documented decisions clearly: what changed + why</li>
-              </ul>
-
-              <p class="details-title">Why it matters</p>
-              <ul>
-                <li>Shows my process: build → test → improve</li>
-                <li>Highlights analysis-based decisions, not just modeling</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- Parking Lot -->
-        <article class="card clickable" data-target="p2" aria-expanded="false">
-          <img src="./images/parkinglot.jpg" alt="Parking Lot Indicator System" />
-          <div class="card-body">
-            <div class="card-topline">
-              <h3>Parking Lot Indicator System</h3>
-              <span class="tiny">Embedded • Sensors • LEDs</span>
-            </div>
-
-            <p class="preview">
-              Arduino-based sensor system to detect vehicle presence and control indicator LEDs (green → red).
-            </p>
-
-            <div class="tags">
-              <span>Arduino</span><span>Sensors</span><span>Prototyping</span>
-            </div>
-
-            <div class="details" id="p2">
-              <p class="details-title">What I built</p>
-              <ul>
-                <li>Sensor-to-output logic for detection + real-time LED switching</li>
-                <li>Testing + tuning for consistent detection behavior</li>
-                <li>Simple UX: instant “available / not available” feedback</li>
-              </ul>
-
-              <p class="details-title">What I learned</p>
-              <ul>
-                <li>Reliability beats “perfect” ideas</li>
-                <li>Small systems get powerful when logic is clean</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- Research -->
-        <article class="card clickable" data-target="p3" aria-expanded="false">
-          <img src="./images/flow%20lab%20image.jpg" alt="Research Work" />
-          <div class="card-body">
-            <div class="card-topline">
-              <h3>Engineering Research</h3>
-              <span class="tiny">Data • Experiments • Analysis</span>
-            </div>
-
-            <p class="preview">
-              Research support across labs — experimental workflows, data processing, and analysis.
-            </p>
-
-            <div class="tags">
-              <span>Research</span><span>Data</span><span>Analysis</span>
-            </div>
-
-            <div class="details" id="p3">
-              <p class="details-title">What I do in labs</p>
-              <ul>
-                <li>Support experimental + data workflows to turn raw results into usable insight</li>
-                <li>Help with documentation and analysis so projects stay on track</li>
-                <li>Collaborate with teams and follow through end-to-end</li>
-              </ul>
-
-              <p class="details-title">What I’m growing toward</p>
-              <ul>
-                <li>More hands-on instrumentation + building</li>
-                <li>Stronger modeling foundations</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section soft" id="skills">
-    <div class="wrap">
-      <h2>Skills</h2>
-      <p class="subhead">Tools + topics I’m growing in.</p>
-
-      <div class="chips">
-        <span class="chip">SolidWorks</span>
-        <span class="chip">MATLAB</span>
-        <span class="chip">Arduino</span>
-        <span class="chip">Data Analysis</span>
-        <span class="chip">Engineering Design</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-
-      <div class="contact-grid">
-        <a class="contact-card" href="mailto:hamna.asif@berkeley.edu">
-          <div class="contact-title">Email</div>
-          <div class="contact-sub">hamna.asif@berkeley.edu</div>
-        </a>
-
-        <a class="contact-card" href="https://www.linkedin.com/in/hamna-asif-" target="_blank" rel="noopener">
-          <div class="contact-title">LinkedIn</div>
-          <div class="contact-sub">linkedin.com/in/hamna-asif-</div>
-        </a>
-
-        <a class="contact-card" href="https://github.com/hamnaasiff" target="_blank" rel="noopener">
-          <div class="contact-title">GitHub</div>
-          <div class="contact-sub">@hamnaasiff</div>
-        </a>
-      </div>
-
-      <footer class="footer">
-        © <span id="year"></span> Hamna Asif
-      </footer>
-    </div>
-  </section>
-
-  <script>
-    // year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // clickable cards: toggle details + aria-expanded
-    document.querySelectorAll(".card.clickable").forEach((card) => {
-      card.addEventListener("click", () => {
-        const id = card.getAttribute("data-target");
-        const details = document.getElementById(id);
-
-        const isOpen = details.classList.toggle("open");
-        card.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-    });
-  </script>
-
-</body>
-</html>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.
